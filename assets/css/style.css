@@ -16,7 +16,7 @@
 :root{
 	/* ===== Colors ===== */
 	--pink-color: #FE8F8F;
-	--pink-darker: #FF5C58;
+	--pink-darker: #FF5C58; 
 	--white-color: #FFF;
 	--text-color: #141414;
 	--body-color: #EDEDED;
@@ -24,7 +24,7 @@
 	/* ===== Font & Typography ===== */
 	--text-font: 'Poppins', sans-serif;
 	--title-font: 'modernline_-_personal_useRg';
-	--biggest-font-size: 2.50rem;
+	--biggest-font-size: 2.40rem;
 	--h1-font-size: 1.5rem;
 	--h2-font-size: 1.25rem;
 	--h3-font-size: 1rem;
@@ -139,8 +139,8 @@ img{
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
-	padding: 0.3rem;
-	font-size: 1.3rem;
+	padding: 0.5rem;
+	font-size: 1.5rem;
 	border-radius: 50%;
 }
 /* ===== end social media ===== */
@@ -311,6 +311,9 @@ img{
 	display: block;
 	font-weight: var(--semi-bold-font);
 	font-size: var(--h3-font-size);
+}
+.home__place{
+	font-weight: var(--regular-font) !important;
 }
 /* ===== end home ===== */
 
@@ -655,9 +658,9 @@ footer .social__media-link{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background-color: rgba(0,0,0,.2);
-	-webkit-backdrop-filter: blur(10px);
-	        backdrop-filter: blur(10px);
+	background-color: rgba(0,0,0,.7);
+	-webkit-backdrop-filter: blur(15px);
+	        backdrop-filter: blur(15px);
 	z-index: var(--z-popup);
 }
 .popup__container{
