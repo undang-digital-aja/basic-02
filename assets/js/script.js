@@ -1,16 +1,10 @@
 // ===== SHOW MENU ===== //
 const navMenu = document.getElementById('nav-menu'),
-		closeNav = document.getElementById('nav-close'),
 		toggleNav = document.getElementById('nav-toggle');
 
 // Show Menu
 toggleNav.addEventListener('click', ()=>{
 	navMenu.classList.toggle('show-menu')
-});
-
-// Hide Menu
-closeNav.addEventListener('click', ()=>{
-	navMenu.classList.remove('show-menu')
 });
 // ===== end show menu ===== //
 
@@ -167,18 +161,25 @@ sectionTitle.forEach((n, i) => {
 	n.dataset.aos = 'fade-down';
 });
 
-// 7. countdown timer -> .timer__subtitle, .timer__box
+// 7. class css -> .section-subtitle
+const sectionSubtitle = document.querySelectorAll('.section-subtitle');
+sectionSubtitle.forEach((n, i) => {
+	n.dataset.aos = 'fade-down';
+	// n.dataset.aosDelay = i * 100;
+});
+
+// 8. countdown timer -> .timer__subtitle, .timer__box
 const timerBox = document.querySelectorAll('.timer__box');
 timerBox.forEach((n, i) => {
 	n.dataset.aos = 'flip-left';
 	n.dataset.aosDelay = i * 100;
 });
 
-// 8. prokes -> .prokes__description, .prokes__img
+// 9. prokes -> .prokes__content
 
-// 9. message -> .message__container
+// 10. message -> .message__container
 
-// 10. footer -> .footer__box
+// 11. footer -> .footer__box
 const footerBox = document.querySelectorAll('.footer__box');
 footerBox.forEach((n, i) => {
 	n.dataset.aos = 'fade-down';

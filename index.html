@@ -23,39 +23,36 @@
 	<header class="l-header" id="header">
 		<nav class="nav bd-container">
 			<div class="nav__menu" id="nav-menu">
-				<div class="nav__close" id="nav-close">
-					<i class='bx bx-x'></i>
-				</div>
 				<ul class="nav__list">
 					<li class="nav__item">
 						<a href="#home" class="nav__link active-link">
 							<i class='bx bx-home nav__icon'></i>
-							<span>Home</span>
+							<span class="nav__name">Home</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a href="#couple" class="nav__link">
 							<i class='bx bxs-heart nav__icon'></i>
-							<span>Mempelai</span>
+							<span class="nav__name">Couple</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a href="#event" class="nav__link">
 							<i class='bx bx-calendar-heart nav__icon'></i>
-							<span>Acara</span>
+							<span class="nav__name">Event</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a href="#message" class="nav__link">
 							<i class='bx bx-envelope nav__icon'></i>
-							<span>Pesan</span>
+							<span class="nav__name">Wish</span>
 						</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="nav__toggle" id="nav-toggle">
-				<i class='bx bx-menu menu__icon'></i>
+				<i class='bx bx-grid-alt menu__icon'></i>
 			</div>
 		</nav>
 	</header>
@@ -115,7 +112,7 @@
 				</div>
 				<div class="couple__box" data-aos="fade-left">
 					<div class="couple__img">
-						<img src="assets/img/bride.jpg" alt="">
+						<img src="assets/img/bride.png" alt="">
 					</div>
 					<h2 class="couple__name">Shinta</h2>
 					<div class="couple__description">
@@ -160,7 +157,7 @@
 							<iframe class="map__file" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
 
 							<!-- Map Button -->
-							<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="640" data-height="480">
+							<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
 								<div class="button__with-icon map__button">
 									<i class='bx bx-map-alt button__icon'></i>
 									<span>Get Direction</span>
@@ -176,7 +173,7 @@
 		<!-- ===== COUNTDOWN TIMER ===== -->
 		<section class="timer section bd-container">
 			<h2 class="section-title">The Day</h2>
-			<span class="timer__subtitle" data-aos="fade-down">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara (i)<br>berkenan hadir dan memberikan doa restu untuk kedua mempelai.</span>
+			<span class="section-subtitle">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara (i) berkenan hadir dan memberikan doa restu untuk kedua mempelai.</span>
 
 			<div class="timer__container bd-grid">
 				<div class="timer__box">
@@ -201,11 +198,31 @@
 		<!-- ===== end countdown timer =====  -->
 
 		<!-- ===== PROKES ===== -->
-		<section class="prokes section bd-container">
-			<h2 class="section-title">Dear Guest</h2>
-			<span class="prokes__description" data-aos="fade-down">Tanpa Mengurangi rasa hormat, untuk menjalankan sunnah Rasul dan syariat Islam, serta dikarenakan situasi Pandemi, kepada seluruh tamu undangan kami menghimbau hal berikut:</span>
-			<div class="prokes__img" data-aos="fade-down" data-aos-delay="100">
-				<img src="assets/img/prokes.png" alt="">
+		<section class="prokes section">
+			<div class="prokes__content bd-container" data-aos="fade-down">
+				<h2 class="prokes__title">Protokol Kesehatan</h2>
+				<span class="prokes__subtitle">Demi keamanan dan kenyamanan bersama, para hadirin undangan dihimbau untuk memenuhi beberapa peraturan berikut:</span>
+
+				<div class="prokes__container bd-grid">
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/masker.png" alt="">
+						</div>
+						<span class="prokes__description">Gunakan Masker</span>
+					</div>
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/jarak.png" alt="">
+						</div>
+						<span class="prokes__description">Jaga Jarak</span>
+					</div>
+					<div class="prokes__box">
+						<div class="prokes__img">
+							<img src="assets/img/salaman.png" alt="">
+						</div>
+						<span class="prokes__description">Cukup Bersalaman tanpa Bersentuhan</span>
+					</div>
+				</div>
 			</div>
 		</section>
 		<!-- ===== end prokes ===== -->
@@ -279,7 +296,7 @@
 	<!-- ===== POP UP ===== -->
 	<div class="popup" id="popup">
 		<div class="popup__container bd-container">
-			<div class="popup__content" data-aos="fade-down">
+			<div class="popup__content">
 				<h2 class="popup__subtitle">Welcome</h2>
 				<div class="popup__line"></div>
 				<h3 class="popup__subtitle2">You are invited to the wedding of</h3>
