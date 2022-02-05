@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- ===== MAIN CSS ===== -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- ===== FAVICON ===== -->
+	<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
 	<!-- ===== BOX ICONS ===== -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -16,12 +16,939 @@
 	<!-- ===== AOS ANIMATIONS ===== -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
+	<!-- ===== MAIN CSS ===== -->
+	<style>
+		/* ===== GOOGLE FONTS ===== */
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+		/* ===== FONT FACE ===== */
+		@font-face {
+		   font-family: 'modernline_-_personal_useRg';
+				src: url('assets/fonts/modernline-webfont.woff2') format('woff2'),
+				   url('assets/fonts/modernline-webfont.woff') format('woff');
+		   font-weight: normal;
+		   font-style: normal;
+		}
+		/* ===== end font face ===== */
+
+		/* ===== VARIABLES CSS ===== */
+		:root{
+			/* ===== Colors ===== */
+			--soft-pink-color: #DDBEBE;
+			--pink-darker-color: #C89595;
+			--pink-darkest-color: #6C4A4A;
+			--body-color: #EDEDED;
+			--text-color: #141414;
+			--white-color: #FFF;
+
+			/* ===== Font & Typography ===== */
+			--text-font: 'Poppins', sans-serif;
+			--title-font: 'modernline_-_personal_useRg';
+			--biggest-font-size: 2.40rem;
+			--h1-font-size: 1.5rem;
+			--h2-font-size: 1.25rem;
+			--h3-font-size: 1rem;
+			--h4-font-size: 1.1rem;
+			--normal-font-size: .938rem;
+			--small-font-size: .725rem;
+
+			/* ===== Font Weight ===== */
+			--regular-font: 400;
+			--medium-font: 500;
+			--semi-bold-font: 600;
+
+			/* ===== z-index ===== */
+			--z-toggle: 100;
+			--z-menu: 200;
+			--z-popup: 300;
+		}
+		/* ===== end variables css ===== */
+
+		/* Responsive Font & Typography */
+		@media screen and (min-width: 768px){
+			:root{
+				--biggest-font-size: 4rem;
+				--h1-font-size: 2.25rem;
+				--h2-font-size: 1.5rem;
+				--h3-font-size: 1.25rem;
+				--h4-font-size: 1.15rem;
+				--normal-font-size: 1rem;
+				--small-font-size: .825rem;
+			}
+		}
+		/* ===== end responsive font & typography */
+
+		/* ===== BASE ===== */
+		*,
+		::before,
+		::after{
+			box-sizing: border-box;
+		}
+		html{
+			scroll-behavior: smooth;
+		}
+		body{
+			margin: 0;
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+			background-color: var(--body-color);
+			color: var(--text-color);
+			line-height: 1.6;
+			overflow: hidden; /* POP-UP */
+		}
+		h1,h2,h3,p,ul{
+			margin: 0;
+		}
+		ul{
+			padding: 0;
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+		.l-main{
+			overflow-x: hidden !important;
+		}
+		/* ===== end base ===== */
+
+		/* ===== SCROLL BAR ===== */
+		::-webkit-scrollbar{
+			width: .6rem;
+			background: #E8E8E8;
+		}
+		::-webkit-scrollbar-thumb{
+			background: #686D76;
+			border-radius: .5rem;
+		}
+		/* ===== end scroll bar ===== */
+
+		/* ===== LAYOUT ===== */
+		.container{
+			max-width: 1024px;
+			width: calc(100% - 2rem);
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+		.grid{
+			display: -ms-grid;
+			display: grid;
+			grid-gap: 1.5rem;
+		}
+		/* ===== end layout ===== */
+
+		/* ===== CSS CLASS ===== */
+		.section{
+			padding: 4rem 0 3rem;
+		}
+		.section__title,
+		.prokes__title,
+		.rsvp__title{
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+		.section__subtitle,
+		.prokes__subtitle{
+			display: block;
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		/* ===== end css class ===== */
+
+		/* ===== SOCIAL MEDIA ===== */
+		.social__media-link{
+			background-color: var(--pink-darkest-color);
+			color: var(--white-color);
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: inline-flex;
+			padding: 0.5rem;
+			font-size: 1.5rem;
+			border-radius: 50%;
+		}
+		/* ===== end social media ===== */
+
+		/* ===== BUTTONS ===== */
+		.button{
+			background-color: var(--pink-darker-color);
+			padding: .75rem 1.5rem;
+			border-radius: .25rem;
+			cursor: pointer;
+			max-width: max-content;
+			width: 100%;
+		}
+		.button--flex{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			color: var(--white-color);
+		}
+		.button__icon{
+			font-size: 1.5rem;
+			margin-right: .5rem;
+		}
+		.button--center{
+			margin-left: auto;
+			margin-right: auto;
+		}
+		/* ===== end buttons ===== */
+
+		/* ===== NAV ===== */
+		.nav__toggle{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: var(--pink-darkest-color);
+			color: var(--white-color);
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			cursor: pointer;
+			position: fixed;
+			left: 1rem;
+			bottom: 1.2rem;
+			z-index: var(--z-toggle);
+		}
+		.menu__icon{
+			font-size: 1.5rem;
+		}
+		.nav__menu{
+			background-color: var(--white-color);
+			padding: 1.5rem 1rem;
+			position: fixed;
+			left: 0;
+			bottom: -100%;
+			width: 100%;
+			border-radius: 1.25rem 1.25rem 0 0;
+			z-index: var(--z-menu);
+			display: -ms-grid;
+			display: grid;
+			-ms-grid-row-align: center;
+				align-items: center;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		.nav__list,
+		.nav__link{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.nav__list{
+			-ms-flex-pack: distribute;
+				justify-content: space-around;
+		}
+		.nav__link{
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+						-ms-grid-row-align: center;
+					align-items: center;
+			color: var(--text-color);
+			font-weight: var(--semi-bold-font);
+		}
+		.nav__icon{
+			width: 30px;
+			margin-bottom: .3rem;
+		}
+		.nav__name{
+			font-size: var(--small-font-size);
+		}
+		.nav__close{
+			position: absolute;
+			right: 1rem;
+			bottom: .5rem;
+			font-size: 1.5rem;
+			color: var(--pink-darkest-color);
+			cursor: pointer;
+		}
+
+		/* Show Menu */
+		.show-menu{
+			bottom: 0;
+		}
+
+		/* Active Link */
+		.active-link{
+			position: relative;
+			color: var(--pink-darker-color);
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+		.active-link::before{
+			content: '';
+			position: absolute;
+			bottom: -.3rem;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: var(--pink-color);
+			display: none;
+		}
+		/* ===== end nav ===== */
+
+		/* ===== HOME ===== */
+		.home{
+			width: 100%;
+			height: 100vh;
+		}
+		.home__container{
+			height: inherit;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+		}
+		.home__content{
+			text-align: center;
+		}
+		.home__subtitle{
+			font-weight: var(--regular-font);
+			margin-bottom: 1rem;
+		}
+		.home__title{
+			font-size: var(--biggest-font-size);
+			font-family: var(--title-font);
+			margin-bottom: 1rem;
+		}
+		.home__description{
+			background-color: rgba(255,255,255,.5);
+			padding: 1rem 2rem;
+			border-radius: .5rem;
+			width: 100%;
+		}
+		.home__description span{
+			display: block;
+			font-weight: var(--semi-bold-font);
+			font-size: var(--h3-font-size);
+		}
+		.home__place{
+			font-weight: var(--regular-font) !important;
+		}
+		/* ===== end home ===== */
+
+		/* ===== QUOTES ===== */
+		.quotes span{
+			display: block;
+		}
+		.quotes{
+			background-color: var(--pink-darker-color);
+			color: var(--white-color);
+			padding: 2.5rem 0;
+		}
+		.quotes__line{
+			width: 300px;
+			height: 2px;
+			background-color: var(--white-color);
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.quotes__content{
+			text-align: center;
+			padding: 2rem 0;
+		}
+		.quotes__bold{
+			font-weight: var(--semi-bold-font);
+			margin-top: 1rem;
+		}
+		/* ===== end quotes ===== */
+
+		/* ===== COUPLE ===== */
+		.couple span{
+			display: block;
+		}
+		.couple{
+			text-align: center;
+		}
+		.bismillah{
+			margin-bottom: .5rem;
+		}
+		.bismillah__img{
+			width: 350px;
+		}
+		.couple__greeting{
+			font-style: italic;
+			margin-bottom: 1rem;
+		}
+		.couple__greeting2{
+			margin-bottom: 2.5rem;
+		}
+		.couple__box{
+			background-color: var(--soft-pink-color);
+			padding: 2rem 1rem;
+			border-radius: .5rem;
+			text-align: center;
+		}
+		.couple__subtitle{
+			margin-bottom: 1.5rem;
+			font-weight: var(--medium-font);
+		}
+		.couple__name{
+			margin-bottom: .5rem;
+			font-family: var(--title-font);
+			font-size: var(--h1-font-size);
+		}
+		.couple__description{
+			margin-bottom: 1rem;
+		}
+		.couple__description span{
+			font-weight: var(--semi-bold-font);
+			margin-bottom: .3rem;
+		}
+		.couple__img{
+			width: 295px;
+			height: 320px;
+			background-color: var(--white-color);
+			position: relative;
+			border-radius: .5rem;
+			overflow: hidden;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.couple__img img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			-o-object-position: top;
+			   object-position: top;
+		}
+		/* ===== end couple ===== */
+
+		/* ===== EVENT ===== */
+		.event{
+			text-align: center;
+		}
+		.event span{
+			display: block;
+		}
+		.event__time{
+			font-size: var(--h1-font-size);
+			font-weight: var(--semi-bold-font);
+			margin-bottom: 2.5rem;
+		}
+		.event__day,
+		.event__month{
+			font-family: var(--title-font);
+		}
+		.event__box{
+			background: rgba(255,255,255,.5) url(assets/img/event_img.png) no-repeat center/cover;
+			background-blend-mode: overlay;
+			border-radius: .5rem;
+			padding: 2rem 0;
+		}
+		.event__icon{
+			width: 90px;
+			margin-bottom: 1rem;
+		}
+		.event__box:first-child{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+		}
+		.event__box-item:first-child{
+			margin-bottom: 2.5rem;
+		}
+		.map__file{
+			width: 90%;
+			height: 150px;
+			border: none;
+			margin: 1rem 0 1.5rem;
+		}
+		/* ===== end event ===== */
+
+		/* ===== COUNTDOWN TIMER ===== */
+		.timer{
+			margin-top: 2rem;
+		}
+		.timer span{
+			display: block;
+		}
+		.timer .section-title{
+			margin-bottom: 0;
+		}
+		.timer__container{
+			-ms-grid-columns: (minmax(100px,1fr))[auto-fit];
+				grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+			place-items: center !important;
+		}
+		.timer__box{
+			width: 100px;
+			height: 100px;
+			border-radius: 1rem;
+			background-color: var(--pink-darker-color);
+			color: var(--white-color);
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+		}
+		.timer__number{
+			font-size: var(--h1-font-size);
+			font-weight: var(--semi-bold-font);
+			font-family: var(--title-font);
+		}
+
+		/* Timer Stop */
+		#timer-stop{
+			text-align: center;
+			margin-top: 1.5rem;
+		}
+		/* ===== end countdown timer ===== */
+
+		/* ===== RSVP ===== */
+		.rsvp__container{
+			background-color: var(--white-color);
+			padding: 2rem 1.2rem;
+			border-radius: .5rem;
+		}
+		.rsvp__field:not(:last-child){
+			margin-bottom: 1rem;
+		}
+		.rsvp__input,
+		.rsvp__textarea{
+			display: block;
+			width: 100%;
+			border: 1px solid #D9D9D9;
+			padding: 0.3rem 0.4rem;
+			border-radius: .3rem;
+			outline: none;
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+		}
+		.rsvp__textarea{
+			height: 125px;
+			resize: none;
+		}
+		.rsvp__input:focus,
+		.rsvp__textarea:focus{
+			border: 1px solid var(--soft-pink-color);
+		}
+
+		/* Radio Btn */
+		input[type='radio']::after{
+			position: relative;
+			content: '';
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			top: -1px;
+			left: -1px;
+			border: 2px solid #d8e4e2;
+			background-color: var(--white-color);
+			border-radius: 50%;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		input[type='radio']:checked::after{
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			top: -1px;
+			left: -1px;
+			position: relative;
+			background-color: var(--pink-darker-color);
+			content: '';
+			display: inline-block;
+			visibility: visible;
+			border: 2px solid #d8e4e2;
+		}
+		.radio__text{
+			margin-left: 1rem;
+		}
+
+		/* RSVP Respon */
+		.rsvp__respon{
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			margin-top: .75rem;
+			display: none;
+		}
+		.rsvp__respon-icon{
+			font-size: 1.3rem;
+			margin-right: .2rem;
+			color: var(--pink-darker-color);
+		}
+		.rsvp__button{
+			font-family: var(--text-font);
+			font-size: var(--normal-font-size);
+			outline: none;
+			border: none;
+			margin-top: 1.75rem;
+		}
+
+		/* Show RSVP Modal */
+		.rsvp-respon{
+			display: -webkit-box !important;
+			display: -ms-flexbox !important;
+			display: flex !important;
+		}
+		/* ===== end rsvp ===== */
+
+		/* ===== PROKES ===== */
+		.prokes{
+			margin: 1.5rem 0 3.5rem;
+		}
+		.prokes__title{
+			margin-bottom: 0;
+		}
+		.prokes__content{
+			border-radius: .5rem;
+			padding: 2rem 1rem;
+			background-color: var(--pink-darker-color);
+			color: var(--white-color);
+		}
+		.prokes__container{
+			-ms-grid-columns: (minmax(120px,1fr))[auto-fit];
+				grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+		}
+		.prokes__img{
+			width: 130px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.prokes__description{
+			display: block;
+			text-align: center;
+		}
+		/* ===== end prokes ===== */
+
+		/* ===== FOOTER ===== */
+		footer{
+			background-color: var(--pink-darker-color);
+			color: var(--white-color);
+			text-align: center;
+			padding: 2.5rem 0 2rem;
+			margin-top: 2rem;
+		}
+		footer span{
+			display: block;
+		}
+		.footer__name{
+			font-family: var(--title-font);
+			font-size: var(--biggest-font-size);
+			margin-bottom: 1rem;
+		}
+		.footer__thanks{
+			font-weight: var(--medium-font);
+			letter-spacing: 2px;
+			margin-bottom: 2rem;
+		}
+		.footer__closing{
+			font-family: var(--title-font);
+			font-size: var(--h2-font-size);
+		}
+		.footer__title,
+		.footer__description{
+			font-size: var(--small-font-size);
+		}
+		.footer__box:first-child{
+			margin-bottom: 3rem;
+		}
+		.footer__box .social__media{
+			padding-top: 2rem;
+		}
+		footer .social__media-link{
+			background-color: var(--white-color);
+			color: var(--text-color);
+		}
+		/* ===== end footer ===== */
+
+		/* ===== BACKSOUND ===== */
+		.backsound{
+			width: 40px;
+			height: 40px;
+			background-color: var(--pink-darkest-color);
+			border-radius: 50%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			position: fixed;
+			right: 1rem;
+			bottom: 1.5rem;
+		}
+		.backsound__icon{
+			width: 23px;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer></filter></svg>#filter');
+			-webkit-filter: invert(1) !important;
+					filter: invert(1) !important;
+			cursor: pointer;
+		}
+		/* ===== end backsound ===== */
+
+		/* ===== POP UP ===== */
+		.popup{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background-color: rgba(0,0,0,.7);
+			-webkit-backdrop-filter: blur(15px);
+					backdrop-filter: blur(15px);
+			z-index: var(--z-popup);
+		}
+		.popup__container{
+			height: inherit;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+				-ms-flex-pack: center;
+					justify-content: center;
+			-webkit-box-align: center;
+				-ms-flex-align: center;
+					align-items: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+					flex-direction: column;
+			text-align: center;
+		}
+		.popup__content{
+			background: url(assets/img/home_landscape.png) no-repeat center/cover;
+			background-color: var(--body-color);
+			border-radius: .5rem;
+			padding: 2rem 1.5rem;
+			width: 100%;
+		}
+		.popup__subtitle{
+			font-size: var(--h1-font-size);
+			font-weight: var(--regular-font);
+			margin-bottom: 2rem;
+		}
+		.popup__line{
+			height: 2px;
+			width: 50px;
+			background-color: var(--text-color);
+			-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+			margin: .5rem auto;
+		}
+		.popup__subtitle2{
+			font-weight: var(--regular-font);
+			margin: 2rem 0 0;
+		}
+		.popup__title{
+			font-size: var(--biggest-font-size);
+			font-family: var(--title-font);
+			margin: 1rem 0 1.5rem;
+		}
+		/* ===== end pop up ===== */
+
+		/* ===== MEDIA QUERIS ===== */
+		@media screen and (max-width: 320px){
+			/* ===== NAV ===== */
+			.nav__name{
+				display: none;
+			}
+			.active-link::before{
+				display: block;
+			}
+			/* ===== end nav ===== */
+
+			/* ===== QUOTES ===== */
+			.quotes__line{
+				width: 90%;
+			}
+			/* ===== end quotes ===== */
+		}
+
+		@media screen and (max-width: 336px){
+			/* ===== COUPLE ===== */
+			.couple__img{
+				width: 100%;
+				height: 300px;
+			}
+			/* ===== end couple ===== */
+		}
+
+		@media screen and (max-width: 568px){
+			/* ===== HOME ===== */
+			.home{
+				background: url(assets/img/home_portrait.png) no-repeat center/cover;
+			}
+			/* ===== end home ===== */
+		}
+
+		@media screen and (min-width: 568px){
+			/* ===== HOME ===== */
+			.home{
+				background: url(assets/img/home_landscape.png) no-repeat center/cover;
+			}
+			/* ===== end home ===== */
+
+			/* ===== PROKES ===== */
+			.prokes__container{
+				-ms-grid-columns: (1fr)[3];
+					grid-template-columns: repeat(3,1fr);
+			}
+			.prokes .section-subtitle{
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end prokes ===== */
+
+			/* ===== POP UP ===== */
+			.popup__content{
+				width: 80%;
+			}
+			/* ===== end pop up ===== */
+		}
+
+		@media screen and (min-width: 768px){
+			/* ===== LAYOUT ===== */
+			.section{
+				padding-top: 5rem;
+			}
+			/* ===== end layout ===== */
+
+			/* ===== NAV ===== */
+			.nav__menu{
+				padding-bottom: 1rem;
+			}
+			.nav__name{
+				font-size: var(--normal-font-size);
+			}
+			.nav__list{
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.nav__icon{
+				width: 40px;
+			}
+			.nav__close{
+				right: 1.5rem;
+				bottom: 1rem;
+			}
+			/* ===== end nav ====== */
+
+			/* ===== COUPLE ===== */
+			.bismillah__img{
+				width: 410px;
+			}
+			.couple__container{
+				-ms-grid-columns: (1fr)[3];
+					grid-template-columns: repeat(3,1fr);
+				-webkit-box-align: center;
+					-ms-flex-align: center;
+							-ms-grid-row-align: center;
+						align-items: center;
+			}
+			.couple__img{
+				width: 100%;
+				height: 300px;
+			}
+			/* ===== end couple ===== */
+
+			/* ===== EVENT ===== */
+			.event__content{
+				-ms-grid-columns: (1fr)[2];
+					grid-template-columns: repeat(2,1fr);
+			}
+			/* ===== end event ===== */
+
+			/* ===== TIMER ===== */
+			.timer .section-subtitle{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end timer ===== */
+
+			/* ===== PROKES ===== */
+			.prokes__img{
+				width: 160px;
+			}
+			/* ===== end prokes ===== */
+		}
+
+		@media screen and (min-width: 1024px){
+			/* ===== LAYOUT ===== */
+			.container{
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* ===== end layout ===== */
+
+			/* ===== POP UP ===== */
+			.popup__content{
+				width: 70%;
+			}
+			/* ===== end pop up ===== */
+		}
+		/* ===== end media queris ===== */
+	</style>
+	<!-- ===== end main css ===== -->
+
 	<title>Wedding Invitation - Shinta & Rama</title>
 </head>
 <body>
 	<!-- ===== HEADER ===== -->
 	<header class="l-header" id="header">
-		<nav class="nav bd-container">
+		<nav class="nav container">
 			<div class="nav__menu" id="nav-menu">
 				<ul class="nav__list">
 					<li class="nav__item">
@@ -43,16 +970,17 @@
 						</a>
 					</li>
 					<li class="nav__item">
-						<a href="#message" class="nav__link">
-							<img src="assets/img/wish.png" alt="" class="nav__icon">
-							<span class="nav__name">Wish</span>
+						<a href="#rsvp" class="nav__link">
+							<img src="assets/img/rsvp.png" alt="" class="nav__icon">
+							<span class="nav__name">RSVP</span>
 						</a>
 					</li>
 				</ul>
+				<i class='bx bx-x nav__close' id="nav-close"></i>
 			</div>
 
 			<div class="nav__toggle" id="nav-toggle">
-				<i class='bx bx-grid-alt menu__icon'></i>
+				<i class='bx bx-menu menu__icon'></i>
 			</div>
 		</nav>
 	</header>
@@ -62,7 +990,7 @@
 	<main class="l-main">
 		<!-- ===== HOME ===== -->
 		<section class="home" id="home">
-			<div class="home__container bd-container">
+			<div class="home__container container">
 				<div class="home__content" data-aos="fade-down">
 					<h2 class="home__subtitle">The Wedding of</h2>
 					<h1 class="home__title">Shinta & Rama</h1>
@@ -77,7 +1005,7 @@
 
 		<!-- ===== QUOTES ===== -->
 		<section class="quotes">
-			<div class="quotes__container bd-container" data-aos="fade-down">
+			<div class="quotes__container container" data-aos="fade-down">
 				<div class="quotes__line"></div>
 				<div class="quotes__content">
 					<p>“Dan diantara tanda-tanda kekuasaan-Nya ialah diciptakan Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapat ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir.”</p>
@@ -89,36 +1017,32 @@
 		<!-- ===== end quotes ===== -->
 
 		<!-- ===== COUPLE ===== -->
-		<section class="couple section bd-container" id="couple">
+		<section class="couple section container" id="couple">
 			<div class="bismillah" data-aos="fade-down">
 				<img src="assets/img/bismillah_black.svg" alt="" class="bismillah__img">
 			</div>
-			<span class="couple__subtitle" data-aos="fade-down" data-aos-delay="50">Assalamualaikum Warahmatullahi Wabarakatuh</span>
-			<span class="couple__greeting" data-aos="fade-down" data-aos-delay="100">Dengan memohon rahmat dan ridha Allah SWT,<br>kami bermaksud menyelenggarakan pernikahan putra-putri kami</span>
+			<span class="couple__greeting" data-aos="fade-down" data-aos-delay="50">Assalamu’alaikum Warahmatullahi Wabarakatu</span>
+			<span class="couple__greeting2" data-aos="fade-down" data-aos-delay="100">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan kami</span>
 
-			<div class="couple__container bd-grid">
+
+			<div class="couple__container grid">
 				<div class="couple__box" data-aos="fade-right">
-					<div class="couple__img">
-						<img src="assets/img/groom.jpg" alt="">
-					</div>
-					<h2 class="couple__name">Rama</h2>
-					<div class="couple__description">
-						<span class="couple__bold">Putra dari:</span>
-						<span>Bapak Rama & Ibu Rama</span>
-					</div>
+					<span class="couple__subtitle">Mempelai Wanita</span>
+					<h2 class="couple__name">Shinta</h2>
+					<p class="couple__description"><span>Putri dari:</span>Bapak Shinta & Ibu Shinta</p>
 					<div class="social__media">
 						<a href="#" class="social__media-link" target="_blank"><i class='bx bxl-instagram'></i></a>
 					</div>
 				</div>
+
+				<div class="couple__img" data-aos="zoom-in">
+					<img src="assets/img/bridegroom.png" alt="">
+				</div>
+
 				<div class="couple__box" data-aos="fade-left">
-					<div class="couple__img">
-						<img src="assets/img/bride.png" alt="">
-					</div>
-					<h2 class="couple__name">Shinta</h2>
-					<div class="couple__description">
-						<span class="couple__bold">Putri dari:</span>
-						<span>Bapak Shinta & Ibu Shinta</span>
-					</div>
+					<span class="couple__subtitle">Mempelai Pria</span>
+					<h2 class="couple__name">Rama</h2>
+					<p class="couple__description"><span>Putra dari:</span>Bapak Rama & Ibu Rama</p>
 					<div class="social__media">
 						<a href="#" class="social__media-link" target="_blank"><i class='bx bxl-instagram'></i></a>
 					</div>
@@ -128,14 +1052,14 @@
 		<!-- ===== end couple ===== -->
 
 		<!-- ===== EVENT ===== -->
-		<section class="event section bd-container" id="event">
+		<section class="event section container" id="event">
 			<div class="event__container">
 				<div class="event__time" data-aos="fade-down">
 					<span class="event__day">Minggu</span>
 					<span>25</span>
 					<span class="event__month">Desember 2022</span>
 				</div>
-				<div class="event__content bd-grid">
+				<div class="event__content grid">
 					<div class="event__box" data-aos="fade-right">
 						<div class="event__box-item">
 							<img src="assets/img/event_icon1.png" alt="" class="event__icon">
@@ -158,7 +1082,7 @@
 
 							<!-- Map Button -->
 							<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.010375137561!2d98.67025851426268!3d3.585091951318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cdde6364c5%3A0x3f93784602afec1d!2sAdimulia%20Hotel%20Medan!5e0!3m2!1sid!2sid!4v1621423444770!5m2!1sid!2sid" data-fancybox data-type="iframe" data-preload="false" data-width="100%" data-height="480">
-								<div class="button button__flex button__center">
+								<div class="button button--flex button--center">
 									<i class='bx bx-map-alt button__icon'></i>
 									<span>Get Direction</span>
 								</div>
@@ -171,11 +1095,11 @@
 		<!-- ===== end event ===== -->
 
 		<!-- ===== COUNTDOWN TIMER ===== -->
-		<section class="timer section bd-container">
-			<h2 class="section-title">The Day</h2>
-			<span class="section-subtitle">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara (i) berkenan hadir dan memberikan doa restu untuk kedua mempelai.</span>
+		<section class="timer container">
+			<h2 class="section__title" data-aos="fade-down">The Day</h2>
+			<span class="section__subtitle" data-aos="fade-down" data-aos-delay="100">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara (i) berkenan hadir dan memberikan doa restu untuk kedua mempelai.</span>
 
-			<div class="timer__container bd-grid">
+			<div class="timer__container grid">
 				<div class="timer__box">
 					<p class="timer__number" id="days">0</p>
 					<span class="timer__description">Days</span>			
@@ -197,13 +1121,65 @@
 		</section>
 		<!-- ===== end countdown timer =====  -->
 
+		<!-- ===== RSVP ===== -->
+		<section class="rsvp section container" id="rsvp">
+			<div class="rsvp__container" data-aos="fade-down">
+				<h2 class="rsvp__title">RSVP</h2>
+
+				<form class="rsvp__form" name="rsvp-input-data">
+					<!-- Name -->
+					<div class="rsvp__field">
+						<label for="rsvp-name">Name:</label>
+						<input type="text" class="rsvp__input validate" id="rsvp-name" name="Name" required="" value="">
+					</div>
+					<!-- Message -->
+					<div class="rsvp__field">
+						<label for="rsvp-textarea">Message:</label>
+						<textarea class="rsvp__textarea" id="rsvp-textarea" required="" name="Message"></textarea>
+					</div>
+					<!-- Attend -->
+					<div class="rsvp__field">
+						<label>Will you be attending?</label>
+						<div class="radio__box">
+							<input type="radio" value="Yes" checked="checked" class="radio__input" name="Attend"><span class="radio__text">Yes</span>
+						</div>
+						<div class="radio__box">
+							<input type="radio" value="No" class="radio__input" name="Attend"><span class="radio__text">No</span>
+						</div>
+					</div>
+					<!-- Amount -->
+					<div class="rsvp__field">
+						<label>How will you attend?</label>
+						<div class="radio__box">
+							<input type="radio" value="Alone" checked="checked" class="radio__input" name="Amount"><span class="radio__text">Alone</span>
+						</div>
+						<div class="radio__box">
+							<input type="radio" value="With Partner" class="radio__input" name="Amount"><span class="radio__text">With Partner</span>
+						</div>
+					</div>
+
+					<button type="submit" class="button button--flex rsvp__button">
+						<i class='bx bx-envelope button__icon'></i>
+						<span>Send</span>
+					</button>
+				</form>
+
+				<!-- RSVP Modal -->
+				<div class="rsvp__respon">
+					<i class='bx bx-check rsvp__respon-icon'></i>
+					<span>Thank you!</span>
+				</div>
+			</div>
+		</section>
+		<!-- ===== end rsvp ===== -->
+
 		<!-- ===== PROKES ===== -->
-		<section class="prokes section">
-			<div class="prokes__content bd-container" data-aos="fade-down">
+		<section class="prokes">
+			<div class="prokes__content container" data-aos="fade-down">
 				<h2 class="prokes__title">Protokol Kesehatan</h2>
 				<span class="prokes__subtitle">Demi keamanan dan kenyamanan bersama, para hadirin undangan dihimbau untuk memenuhi beberapa peraturan berikut:</span>
 
-				<div class="prokes__container bd-grid">
+				<div class="prokes__container grid">
 					<div class="prokes__box">
 						<div class="prokes__img">
 							<img src="assets/img/masker.png" alt="">
@@ -226,35 +1202,12 @@
 			</div>
 		</section>
 		<!-- ===== end prokes ===== -->
-
-		<!-- ===== MESSAGE ==== -->
-		<section class="message section bd-container" id="message">
-			<h2 class="section-title">Send Your Wish!</h2>
-
-			<div class="message__container" data-aos="fade-down" data-aos-delay="100">
-				<form action="" class="message__form">
-					<input type="text" placeholder="Nama" class="message__input" id="message-name">
-
-					<textarea name="" cols="0" rows="10" placeholder="Message" class="message__input" id="message-textarea"></textarea>
-
-					<input type="url" class="message__input" name="url" id="message-url" style="display: none;">
-
-					<a href="javascript:void" class="button button__flex" id="send-message" type="submit" title="Send">
-						<i class='bx bxl-whatsapp button__icon'></i>
-						<span>KIRIM</span>
-					</a>
-
-					<!-- Message Respon -->
-					<div id="message-respon"></div>
-				</form>
-			</div>
-		</section>
 	</main>
 	<!-- ===== end main ===== -->
 
 	<!-- ===== FOOTER ===== -->
 	<footer>
-		<div class="footer__container bd-container">
+		<div class="footer__container container">
 			<div class="footer__box">
 				<span class="footer__name">Shinta & Rama</span>
 				<span class="footer__thanks">TERIMA KASIH</span>
@@ -266,8 +1219,6 @@
 				<div class="social__media">
 					<!-- IG -->
 					<a href="https://www.instagram.com/undangdigitalaja/" target="_blank" class="social__media-link"><i class='bx bxl-instagram' ></i></a>
-					<!-- WA -->
-					<a href="https://api.whatsapp.com/send?phone=6287896889778&text=Halo+Admin%2C+mau+tanya+Undangan+Digital+dong!" target="_blank" class="social__media-link"><i class='bx bxl-whatsapp'></i></a>
 				</div>
 			</div>
 		</div>
@@ -283,21 +1234,15 @@
 	</div>
 	<!-- ===== end backsound ===== -->
 
-	<!-- ===== SCROLL TOP ===== -->
-	<a href="#" class="scrolltop" id="scroll-top">
-		<i class='bx bx-chevron-up scrolltop__icon' ></i>
-	</a>
-	<!-- ===== end scroll top ===== -->
-
 	<!-- ===== POP UP ===== -->
 	<div class="popup" id="popup">
-		<div class="popup__container bd-container">
+		<div class="popup__container container">
 			<div class="popup__content">
 				<h2 class="popup__subtitle">Welcome</h2>
 				<div class="popup__line"></div>
 				<h3 class="popup__subtitle2">You are invited to the wedding of</h3>
 				<h1 class="popup__title">Shinta & Rama</h1>
-				<div class="button button__flex button__center" id="popup-btn">
+				<div class="button button--flex button--center" id="popup-btn">
 					<i class='bx bx-envelope button__icon'></i>
 					<span>Open Invitation</span>
 				</div>
@@ -309,13 +1254,145 @@
 	<!-- ===== FANCYAPPS JS ===== -->
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
-	<!-- ===== JQUERY for MESSAGE BOX via WhatsApp ===== -->
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
 	<!-- ===== AOS ANIMATIONS ===== -->
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	
 	<!-- ===== MAIN JS ===== -->
-	<script src="assets/js/script.js"></script>
+	<script>
+		// ===== SHOW MENU ===== //
+		const navMenu = document.getElementById('nav-menu'),
+				toggleNav = document.getElementById('nav-toggle'),
+				closeNav = document.getElementById('nav-close');
+
+		// Show Menu
+		toggleNav.addEventListener('click', ()=>{
+			navMenu.classList.toggle('show-menu')
+		});
+
+		// Hide Menu
+		closeNav.addEventListener('click', ()=>{
+			navMenu.classList.remove('show-menu')
+		});
+		// ===== end show menu ===== //
+
+		// ===== REMOVE MOBILE MENU ===== //
+		const navLink = document.querySelectorAll('.nav__link');
+
+		function linkAction(){
+			navMenu.classList.remove('show-menu')
+		}
+		navLink.forEach(n => n.addEventListener('click',linkAction));
+		// ===== end remove mobile menu ===== //
+
+		// ===== SCROLL SECTIONS ACTIVE LINK ===== //
+		const sections = document.querySelectorAll('section[id]');
+
+		function scrollActive(){
+			const scrollY = window.pageYOffset
+
+			sections.forEach(current =>{
+				const sectionHeight = current.offsetHeight
+				const sectionTop = current.offsetTop - 50;
+				sectionId = current.getAttribute('id')
+
+				if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+				}else{
+					document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+				}
+			})
+		}
+		window.addEventListener('scroll', scrollActive);
+		// ===== end scroll sections active menu ===== //
+
+		// ===== COUNTDOWN TIMER ===== //
+		const countdownDate = new Date("December 25, 2022 08:30:00").getTime();
+
+		const timerFunction = setInterval(() => {
+			const currentDate = new Date().getTime();
+			const finalTime = countdownDate - currentDate;
+
+			if(finalTime > 0){
+				const days = Math.floor(finalTime / (1000*60*60*24));
+				const hours = Math.floor((finalTime % (1000*60*60*24)) / (1000*60*60));
+				const minutes = Math.floor((finalTime % (1000*60*60)) / (1000*60));
+				const seconds = Math.floor((finalTime % (1000*60)) / (1000));
+
+				document.getElementById('days').innerHTML = days;
+				document.getElementById('hours').innerHTML = hours;
+				document.getElementById('minutes').innerHTML = minutes;
+				document.getElementById('seconds').innerHTML = seconds;
+			}else{
+				clearInterval(timerFunction);
+				document.getElementById("timer-stop").innerHTML = "The Countdown is Over!";
+			}
+		}, 1000);
+		// ===== end countdown timer ===== //
+
+		// ===== BACKSOUND ===== //
+		const backsound = document.getElementById('song');
+		const backsoundIcon = document.getElementById('backsound-icon');
+		const popupBtn = document.getElementById('popup-btn');
+
+		popupBtn.addEventListener('click', ()=>{
+			backsound.play();
+			backsoundIcon.src = "assets/img/pause.png";
+		})
+
+		backsoundIcon.onclick = ()=>{
+			if(backsound.paused){
+				backsound.play();
+				backsoundIcon.src = "assets/img/pause.png";
+			}else{
+				backsound.pause();
+				backsoundIcon.src = "assets/img/play.png";
+			}
+		}
+		// ===== end backsound ===== //
+
+		// ===== POP-UP ===== //
+		const popup = document.getElementById('popup');
+		// const popupBtn = document.getElementById('popup-btn');
+
+		popupBtn.addEventListener('click', ()=>{
+			document.body.style.overflow = 'auto';
+			popup.style.display = 'none';
+		});
+		// ===== end pop up ===== //
+
+		// ===== AOS ANIMATIONS ===== //
+		// 1. home -> .home__content
+
+		// 2. quotes -> .quotes__container
+
+		// 3. couple -> .bismillah, .couple__subtitle, .couple__greeting, .couple__box
+
+		// 4. event -> .event__time, .event__box
+
+		// 5. countdown timer -> .timer__subtitle, .timer__box
+		const timerBox = document.querySelectorAll('.timer__box');
+		timerBox.forEach((n, i) => {
+			n.dataset.aos = 'flip-left';
+			n.dataset.aosDelay = i * 100;
+		});
+
+		// 6. prokes -> .prokes__content
+
+		// 7. rsvp -> .rsvp__container
+
+		// 8. footer -> .footer__box
+		const footerBox = document.querySelectorAll('.footer__box');
+		footerBox.forEach((n, i) => {
+			n.dataset.aos = 'fade-down';
+			n.dataset.aosDelay = i * 100;
+		});
+
+		AOS.init({
+			duration: 1500,
+			once: true,  
+		});
+		// ===== end aos animations ===== //
+	</script>
+	<!-- ===== end main JS ===== -->
 </body>
 </html>
